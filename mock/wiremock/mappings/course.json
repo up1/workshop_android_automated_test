@@ -1,0 +1,29 @@
+{
+    "request": {
+        "method": "GET",
+        "url": "/api-2.0/courses"
+    },
+    "response": {
+        "status": 200,
+        "headers": {
+            "Content-Type": "application/json"
+        },
+        "jsonBody": 
+        {
+            "results" : [
+                {
+                    "title" : "Mock course 01",
+                    "price" : "100"
+                },
+                 {
+                    "title" : "Mock course 02",
+                    "price" : "200"
+                },
+                {
+                    "title" : "Mock course 03",
+                    "price" : "300"
+                }
+            ]
+        }
+    }
+}
