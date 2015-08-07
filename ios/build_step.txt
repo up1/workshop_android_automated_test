@@ -1,0 +1,49 @@
+xcrun instruments -s devices
+
+
+DEVICE_TARGET=https://xxx.local:37265  cucumber
+DEVICE_TARGET="https://iPhone 6.local:37265"  cucumber
+
+
+
+
+*** For iOS < 7 ***
+DEVICE_ENDPOINT=<ip:port> DEVICE_TARGET=<udid> cucumber
+DEVICE_ENDPOINT=http://localhost:37265   cucumber
+
+
+*** Physical testing ***
+NO_LAUNCH=1 DEVICE=iphone OS=ios5 DEVICE_ENDPOINT=http://192.168.1.37:37265 cucumber 
+
+https://github.com/calabash/calabash-ios/wiki/07-Testing-on-physical-iDevices
+
+
+*** For iOS7+ ***
+xcrun xcodebuild \
+    -SYMROOT=build \
+    -derivedDataPath build \
+    ARCHS="i386 x86_64" \
+    VALID_ARCHS="i386 x86_64" \
+    ONLY_ACTIVE_ARCH=NO \
+    -project /Users/somkiat/data/research/ios/workspace/DEMO02/DEMO02.xcodeproj \
+    -scheme "DEMO02-cal" \
+    -sdk iphonesimulator \
+    -configuration DEBUG \
+    clean build
+
+export APP="/Users/somkiat/data/slide/mobile/ios/demo02/build/Build/Products/Release-iphonesimulator/DEMO02-cal.app"
+cucumber
+
+
+
+xcrun xcodebuild \
+    -SYMROOT=build \
+    -derivedDataPath build \
+    ARCHS="i386 x86_64" \
+    VALID_ARCHS="i386 x86_64" \
+    ONLY_ACTIVE_ARCH=NO \
+    -project /Users/somkiat/data/research/ios/workspace/DEMO02/DEMO03.xcodeproj \
+    -scheme "DEMO03-cal" \
+    -sdk iphonesimulator \
+    -configuration DEBUG \
+    clean build
